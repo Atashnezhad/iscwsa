@@ -1,16 +1,19 @@
-# This is a sample Python script.
+import pandas as pd
+from pathlib import Path
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+if __name__ == "__main__":
+    # Path to the data
+    resources_path = Path(__file__).parent / "resources"
+    file_name = "error-model-example-mwdrev5-1-iscwsa-1.xlsx"
+    file_path = resources_path / file_name
 
+    # Read the data
+    df = pd.read_excel(
+        file_path,
+        sheet_name="Model",
+        usecols="E:W",
+        skiprows=2,
+        nrows=41
+    )
+    print(df.columns)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
